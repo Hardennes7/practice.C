@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Function prototype: We're saying "Hey, there's a function called 'addNumbers' which takes two numbers and will give us the result."
+int addNumbers(int num1, int num2);
+
+int main() {
+    int number1, number2, result;
+
+    // Asking the user to enter two numbers
+    printf("Enter the first number: ");
+    scanf("%d", &number1);
+
+    printf("Enter the second number: ");
+    scanf("%d", &number2);
+
+    // Calling the addNumbers function to add the two numbers
+    result = addNumbers(number1, number2);
+
+    // Printing the result
+    printf("The sum of %d and %d is %d\n", number1, number2, result);
+
+    return 0;
+}
+
+// Function definition: This is where we tell the program what to do.
+int addNumbers(int num1, int num2) {
+    return num1 + num2;  // Adds the two numbers and gives the result
+}
+
