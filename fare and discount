@@ -1,0 +1,73 @@
+ fare and discount fare 
+#include <stdio.h>
+
+int main() {
+    int mode, distance;
+    float fare, discountedFare;
+
+    // Display the menu
+    printf("Choose your transport mode:\n");
+    printf("1. Bus\n");
+    printf("2. Taxi\n");
+    printf("Enter your choice (1 or 2): ");
+    scanf("%d", &mode);
+
+    // Prompt the user to enter the distance
+    printf("Enter the distance you wish to travel (in km): ");
+    scanf("%d", &distance);
+
+    // Initialize the original fare based on distance
+    if (mode == 1) {  // Bus fare
+        if (distance <= 50) {
+            fare = 50;
+        } else if (distance <= 150) {
+            fare = 80;
+        } else if (distance <= 400) {
+            fare = 200;
+        } else {
+            fare = 800;
+        }
+
+        // Apply discounts using if-else structure
+        if (distance > 400) {
+            discountedFare = fare * 0.75;  // 25% discount for over 400 km
+        } else if (distance > 150) {
+            discountedFare = fare * 0.60;  // 40% discount for over 150 km
+        } else if (distance > 50) {
+            discountedFare = fare * 0.90;  // 10% discount for over 50 km
+        } else {
+            discountedFare = fare;
+        }
+
+        printf("Original Bus fare: %.2f\n", fare);
+        printf("Revised Bus fare: %.2f\n", discountedFare);
+
+    } else if (mode == 2) {  // Taxi fare
+        if (distance <= 50) {
+            fare = 100;
+        } else if (distance <= 150) {
+            fare = 400;
+        } else if (distance <= 400) {
+            fare = 800;
+        } else {
+            fare = 3000;
+        }
+
+        // Apply discounts using if-else structure
+        if (distance > 400) {
+            discountedFare = fare * 0.70;  // 30% discount for over 400 km
+        } else if (distance > 150) {
+            discountedFare = fare * 0.75;  // 25% discount for over 150 km
+        } else {
+            discountedFare = fare;
+        }
+
+        printf("Original Taxi fare: %.2f\n", fare);
+        printf("Revised Taxi fare: %.2f\n", discountedFare);
+
+    } else {
+        printf("Invalid choice! Please enter 1 for Bus or 2 for Taxi.\n");
+    }
+
+    return 0;
+}
